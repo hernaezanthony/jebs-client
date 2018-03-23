@@ -40,12 +40,17 @@ namespace JEBS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String name = emailTextBox.Text;
+            String email = emailTextBox.Text;
             String password = passwordTextBox.Text;
 
-            if (name == string.Empty || password == string.Empty)
+            if (email == string.Empty || password == string.Empty)
             {
                 MessageBox.Show("All Fields are Required!");
+            }
+
+            if(!email.Contains("@"))
+            {
+                MessageBox.Show("Please Enter Valid Email Address!");
             }
             else 
             {
@@ -55,7 +60,7 @@ namespace JEBS
                 using (var client = new WebClient())
                 {
                     var values = new NameValueCollection();
-                    values["email"] = name;
+                    values["email"] = email;
                     values["password"] = password;
 
                     try
@@ -69,13 +74,17 @@ namespace JEBS
 
                         var rp = new JavaScriptSerializer().Deserialize<Response>(responseString);
 
-                        resultLabel.Text = rp.result;
+                        //resultLabel.Text = rp.result;
 
                         if (rp.result == "success")
                         {
                             menu = new Menu();
                             menu.Show();
                             Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Try Again!");
                         }
                     }
                     catch (WebException xcp)

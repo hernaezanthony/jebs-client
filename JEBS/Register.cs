@@ -29,6 +29,18 @@ namespace JEBS
             titleLabel.Font = new Font(titleLabel.Font.FontFamily, 50);
             titleLabel.BackColor = Color.Transparent;
             subtitleLabel.BackColor = Color.Transparent;
+
+            positionTextBox.Items.Add("Faculty");
+            positionTextBox.Items.Add("Student Assistant");
+
+            passwordTextBox.Text = "";
+            passwordTextBox.PasswordChar = '*';
+            passwordTextBox.MaxLength = 14;
+
+            passwordconfirmTextBox.Text = "";
+            passwordconfirmTextBox.PasswordChar = '*';
+            passwordconfirmTextBox.MaxLength = 14;
+
         }
 
         
@@ -57,9 +69,23 @@ namespace JEBS
             String password = passwordTextBox.Text;
             String passwordConfirm = passwordconfirmTextBox.Text;
 
+            int passwordLength = password.Length;
+
             if (email == string.Empty || firstname == string.Empty || lastname == string.Empty || position == string.Empty || password == string.Empty || passwordConfirm == string.Empty)
             {
                 MessageBox.Show("All Fields are Required!");
+            }
+            else if (!email.Contains("@"))
+            {
+                MessageBox.Show("Please Enter Valid Email Address!");
+            }
+            else if(passwordLength < 8)
+            {
+                MessageBox.Show("Password Must Be At Least 8 characters long!");
+            }
+            else if (!(password == passwordConfirm))
+            {
+                MessageBox.Show("Password and Confirm Password Doesn't Match!");
             }
             else
             {
@@ -93,6 +119,10 @@ namespace JEBS
                             login = new Login();
                             login.Show();
                             Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Try Again!");  
                         }
                     }
                     catch (WebException xcp)

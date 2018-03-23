@@ -44,11 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lastnameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.positionTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginLink = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.positionTextBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -193,14 +193,6 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Position";
             // 
-            // positionTextBox
-            // 
-            this.positionTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.positionTextBox.Location = new System.Drawing.Point(104, 296);
-            this.positionTextBox.Name = "positionTextBox";
-            this.positionTextBox.Size = new System.Drawing.Size(305, 20);
-            this.positionTextBox.TabIndex = 24;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -239,17 +231,25 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Already Have An Account?";
             // 
+            // positionTextBox
+            // 
+            this.positionTextBox.FormattingEnabled = true;
+            this.positionTextBox.Location = new System.Drawing.Point(104, 298);
+            this.positionTextBox.Name = "positionTextBox";
+            this.positionTextBox.Size = new System.Drawing.Size(305, 21);
+            this.positionTextBox.TabIndex = 30;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 488);
+            this.Controls.Add(this.positionTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.loginLink);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.positionTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lastnameTextBox);
             this.Controls.Add(this.label1);
@@ -291,10 +291,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox lastnameTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox positionTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label loginLink;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox positionTextBox;
     }
 }
