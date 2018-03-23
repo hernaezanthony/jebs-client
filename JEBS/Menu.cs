@@ -29,39 +29,6 @@ namespace JEBS
             titleLabel.BackColor = Color.Transparent;
             subtitleLabel.BackColor = Color.Transparent;
 
-            using (var client = new WebClient())
-            {
-                try
-                {
-                    var list_response = client.DownloadString("http://192.168.43.156:3000/api/item/show");
-
-                    //parsing 
-
-                    var rp = new JavaScriptSerializer().Deserialize<ListItemDetails>(list_response);
-
-                    string[] array = new string[99];
-                 
-
-                    for (int x = 0; x < rp.itemDetailsList.Count; x++)
-                    {
-                        if (array.Contains(rp.itemDetailsList[x].name))
-                        {
-                            //do nothing
-                        }
-                        else
-                        {
-                            itemDropDown.Items.Add(rp.itemDetailsList[x].name);
-                            array[x] = rp.itemDetailsList[x].name;
-                        }
-                         
-                    }
-                }
-                catch (WebException xcp)
-                {
-                    MessageBox.Show(xcp.Message);
-                }
-            }
-
             itemConditionComboBox.Items.Add("Used");
             itemConditionComboBox.Items.Add("Brand New");
             itemConditionComboBox.Items.Add("Damaged");
@@ -90,6 +57,46 @@ namespace JEBS
             editItemListView.Columns.Add("Condition", 100);
             editItemListView.Columns.Add("Still Available?", 100);
 
+            button1.ForeColor = Color.SkyBlue;
+
+            FillComboBox();
+
+        }
+
+        public void FillComboBox()
+        {
+            using (var client = new WebClient())
+            {
+                try
+                {
+                    var list_response = client.DownloadString("http://192.168.43.156:3000/api/item/show");
+
+                    //parsing 
+
+                    var rp = new JavaScriptSerializer().Deserialize<ListItemDetails>(list_response);
+
+                    string[] array = new string[99];
+
+
+                    for (int x = 0; x < rp.itemDetailsList.Count; x++)
+                    {
+                        if (array.Contains(rp.itemDetailsList[x].name))
+                        {
+                            //do nothing
+                        }
+                        else
+                        {
+                            itemDropDown.Items.Add(rp.itemDetailsList[x].name);
+                            array[x] = rp.itemDetailsList[x].name;
+                        }
+
+                    }
+                }
+                catch (WebException xcp)
+                {
+                    MessageBox.Show(xcp.Message);
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +109,10 @@ namespace JEBS
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
             button4.ForeColor = Color.White;
+            itemDropDown.Items.Clear();
+            FillComboBox();
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

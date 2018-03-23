@@ -45,7 +45,7 @@ namespace JEBS
 
             if (name == string.Empty || password == string.Empty)
             {
-                MessageBox.Show("All Field are Required!");
+                MessageBox.Show("All Fields are Required!");
             }
             else 
             {

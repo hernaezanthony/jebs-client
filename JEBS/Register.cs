@@ -59,7 +59,7 @@ namespace JEBS
 
             if (email == string.Empty || firstname == string.Empty || lastname == string.Empty || position == string.Empty || password == string.Empty || passwordConfirm == string.Empty)
             {
-                MessageBox.Show("All Field are Required!");
+                MessageBox.Show("All Fields are Required!");
             }
             else
             {
@@ -89,6 +89,7 @@ namespace JEBS
 
                         if (rp.result == "success")
                         {
+                            MessageBox.Show("Registered!");
                             login = new Login();
                             login.Show();
                             Hide();
