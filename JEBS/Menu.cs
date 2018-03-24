@@ -166,6 +166,8 @@ namespace JEBS
             String borrowers_student_number = borrowersStudNumTextBox.Text;
             String borrowers_course = borrowersCourseTextBox.Text;
             String borrowers_year_and_section = borrowersYearAndSectionTextBox.Text;
+            int quantity = Convert.ToInt32(Math.Round(quantityNumericUpDown.Value, 0));
+            int count= 0;
 
             if (name == string.Empty || borrowers_name == string.Empty || borrowers_student_number == string.Empty || borrowers_course == string.Empty || borrowers_year_and_section == string.Empty)
             {
@@ -173,47 +175,50 @@ namespace JEBS
             }
             else
             {
-
-                using (var client = new WebClient())
+                for (int x = 0; x < quantity; x++)
                 {
-                    var values = new NameValueCollection();
-                    values["name"] = name;
-                    values["borrowers_name"] = borrowers_name;
-                    values["borrowers_student_number"] = borrowers_student_number;
-                    values["borrowers_course"] = borrowers_course;
-                    values["borrowers_year_and_section"] = borrowers_year_and_section;
 
-                    try
+                    using (var client = new WebClient())
                     {
-                        var response = client.UploadValues("http://192.168.43.156:3000/api/item/borrowItem", values);
+                        var values = new NameValueCollection();
+                        values["name"] = name;
+                        values["borrowers_name"] = borrowers_name;
+                        values["borrowers_student_number"] = borrowers_student_number;
+                        values["borrowers_course"] = borrowers_course;
+                        values["borrowers_year_and_section"] = borrowers_year_and_section;
 
-                        var responseString = Encoding.Default.GetString(response);
-
-                        //parsing
-
-                        var rp = new JavaScriptSerializer().Deserialize<Response>(responseString);
-
-                        if (rp.result == "success")
+                        try
                         {
-                            itemDropDown.Text = String.Empty;
-                            borrowersnameTextBox.Text = String.Empty;
-                            borrowersStudNumTextBox.Text = String.Empty;
-                            borrowersCourseTextBox.Text = String.Empty;
-                            borrowersYearAndSectionTextBox.Text = String.Empty;
-                            MessageBox.Show("Item Borrowed.");
+                            var response = client.UploadValues("http://192.168.43.156:3000/api/item/borrowItem", values);
 
+                            var responseString = Encoding.Default.GetString(response);
+
+                            //parsing
+
+                            var rp = new JavaScriptSerializer().Deserialize<Response>(responseString);
+
+                            if (rp.result == "success")
+                            {
+                                itemDropDown.Text = String.Empty;
+                                borrowersnameTextBox.Text = String.Empty;
+                                borrowersStudNumTextBox.Text = String.Empty;
+                                borrowersCourseTextBox.Text = String.Empty;
+                                borrowersYearAndSectionTextBox.Text = String.Empty;
+                                count++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed. Try Again");
+                            }
                         }
-                        else
+                        catch (WebException xcp)
                         {
-                            MessageBox.Show("Failed. Try Again");
+                            //throw xcp;
+                            MessageBox.Show(xcp.Message);
                         }
-                    }
-                    catch (WebException xcp)
-                    {
-                        //throw xcp;
-                        MessageBox.Show(xcp.Message);
                     }
                 }
+                MessageBox.Show(count + " Item/s Borrowed.");
             }
         }
 

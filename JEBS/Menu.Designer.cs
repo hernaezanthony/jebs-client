@@ -55,7 +55,13 @@
             this.returnListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.edititemPanel = new System.Windows.Forms.Panel();
+            this.editItemRefreshButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.editItemListView = new System.Windows.Forms.ListView();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.isAvailableCheckBox = new System.Windows.Forms.CheckBox();
+            this.editItemCancelButton = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.editItemSubmitButton = new System.Windows.Forms.Button();
             this.editItemConditionComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,9 +69,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.editItemNameTextbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.editItemRefreshButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.editItemListView = new System.Windows.Forms.ListView();
             this.additemPanel = new System.Windows.Forms.Panel();
             this.addItemButton = new System.Windows.Forms.Button();
             this.itemConditionComboBox = new System.Windows.Forms.ComboBox();
@@ -74,10 +77,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.editItemCancelButton = new System.Windows.Forms.Button();
-            this.isAvailableCheckBox = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.borrowPanel.SuspendLayout();
@@ -85,6 +87,7 @@
             this.edititemPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
             this.additemPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // subtitleLabel
@@ -181,6 +184,8 @@
             // 
             // borrowPanel
             // 
+            this.borrowPanel.Controls.Add(this.quantityNumericUpDown);
+            this.borrowPanel.Controls.Add(this.label11);
             this.borrowPanel.Controls.Add(this.itemDropDown);
             this.borrowPanel.Controls.Add(this.label5);
             this.borrowPanel.Controls.Add(this.borrowersYearAndSectionTextBox);
@@ -200,7 +205,7 @@
             // itemDropDown
             // 
             this.itemDropDown.FormattingEnabled = true;
-            this.itemDropDown.Location = new System.Drawing.Point(104, 44);
+            this.itemDropDown.Location = new System.Drawing.Point(104, 25);
             this.itemDropDown.Name = "itemDropDown";
             this.itemDropDown.Size = new System.Drawing.Size(305, 21);
             this.itemDropDown.TabIndex = 57;
@@ -208,7 +213,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(101, 192);
+            this.label5.Location = new System.Drawing.Point(101, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 13);
             this.label5.TabIndex = 56;
@@ -217,7 +222,7 @@
             // borrowersYearAndSectionTextBox
             // 
             this.borrowersYearAndSectionTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.borrowersYearAndSectionTextBox.Location = new System.Drawing.Point(104, 208);
+            this.borrowersYearAndSectionTextBox.Location = new System.Drawing.Point(105, 229);
             this.borrowersYearAndSectionTextBox.Name = "borrowersYearAndSectionTextBox";
             this.borrowersYearAndSectionTextBox.Size = new System.Drawing.Size(305, 20);
             this.borrowersYearAndSectionTextBox.TabIndex = 55;
@@ -225,7 +230,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(101, 150);
+            this.label4.Location = new System.Drawing.Point(101, 171);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 54;
@@ -234,7 +239,7 @@
             // borrowersCourseTextBox
             // 
             this.borrowersCourseTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.borrowersCourseTextBox.Location = new System.Drawing.Point(104, 166);
+            this.borrowersCourseTextBox.Location = new System.Drawing.Point(104, 187);
             this.borrowersCourseTextBox.Name = "borrowersCourseTextBox";
             this.borrowersCourseTextBox.Size = new System.Drawing.Size(305, 20);
             this.borrowersCourseTextBox.TabIndex = 53;
@@ -242,7 +247,7 @@
             // bstudentnumberLabel
             // 
             this.bstudentnumberLabel.AutoSize = true;
-            this.bstudentnumberLabel.Location = new System.Drawing.Point(101, 111);
+            this.bstudentnumberLabel.Location = new System.Drawing.Point(101, 132);
             this.bstudentnumberLabel.Name = "bstudentnumberLabel";
             this.bstudentnumberLabel.Size = new System.Drawing.Size(136, 13);
             this.bstudentnumberLabel.TabIndex = 52;
@@ -251,7 +256,7 @@
             // borrowersStudNumTextBox
             // 
             this.borrowersStudNumTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.borrowersStudNumTextBox.Location = new System.Drawing.Point(104, 127);
+            this.borrowersStudNumTextBox.Location = new System.Drawing.Point(104, 148);
             this.borrowersStudNumTextBox.Name = "borrowersStudNumTextBox";
             this.borrowersStudNumTextBox.Size = new System.Drawing.Size(305, 20);
             this.borrowersStudNumTextBox.TabIndex = 51;
@@ -259,7 +264,7 @@
             // borrowersnameLabel
             // 
             this.borrowersnameLabel.AutoSize = true;
-            this.borrowersnameLabel.Location = new System.Drawing.Point(102, 69);
+            this.borrowersnameLabel.Location = new System.Drawing.Point(102, 90);
             this.borrowersnameLabel.Name = "borrowersnameLabel";
             this.borrowersnameLabel.Size = new System.Drawing.Size(87, 13);
             this.borrowersnameLabel.TabIndex = 50;
@@ -268,7 +273,7 @@
             // borrowersnameTextBox
             // 
             this.borrowersnameTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.borrowersnameTextBox.Location = new System.Drawing.Point(104, 87);
+            this.borrowersnameTextBox.Location = new System.Drawing.Point(104, 108);
             this.borrowersnameTextBox.Name = "borrowersnameTextBox";
             this.borrowersnameTextBox.Size = new System.Drawing.Size(305, 20);
             this.borrowersnameTextBox.TabIndex = 49;
@@ -276,7 +281,7 @@
             // itemLabel
             // 
             this.itemLabel.AutoSize = true;
-            this.itemLabel.Location = new System.Drawing.Point(101, 28);
+            this.itemLabel.Location = new System.Drawing.Point(101, 6);
             this.itemLabel.Name = "itemLabel";
             this.itemLabel.Size = new System.Drawing.Size(27, 13);
             this.itemLabel.TabIndex = 48;
@@ -289,7 +294,7 @@
             this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitButton.ForeColor = System.Drawing.Color.SkyBlue;
-            this.submitButton.Location = new System.Drawing.Point(104, 247);
+            this.submitButton.Location = new System.Drawing.Point(104, 260);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(305, 32);
             this.submitButton.TabIndex = 47;
@@ -358,6 +363,34 @@
             this.edititemPanel.TabIndex = 60;
             this.edititemPanel.Visible = false;
             // 
+            // editItemRefreshButton
+            // 
+            this.editItemRefreshButton.Location = new System.Drawing.Point(259, 273);
+            this.editItemRefreshButton.Name = "editItemRefreshButton";
+            this.editItemRefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.editItemRefreshButton.TabIndex = 2;
+            this.editItemRefreshButton.Text = "Refresh";
+            this.editItemRefreshButton.UseVisualStyleBackColor = true;
+            this.editItemRefreshButton.Click += new System.EventHandler(this.editItemRefreshButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(167, 273);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 1;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // editItemListView
+            // 
+            this.editItemListView.Location = new System.Drawing.Point(11, 9);
+            this.editItemListView.Name = "editItemListView";
+            this.editItemListView.Size = new System.Drawing.Size(487, 258);
+            this.editItemListView.TabIndex = 0;
+            this.editItemListView.UseCompatibleStateImageBehavior = false;
+            // 
             // editPanel
             // 
             this.editPanel.Controls.Add(this.isAvailableCheckBox);
@@ -375,6 +408,41 @@
             this.editPanel.Size = new System.Drawing.Size(514, 304);
             this.editPanel.TabIndex = 3;
             this.editPanel.Visible = false;
+            // 
+            // isAvailableCheckBox
+            // 
+            this.isAvailableCheckBox.AutoSize = true;
+            this.isAvailableCheckBox.Location = new System.Drawing.Point(210, 177);
+            this.isAvailableCheckBox.Name = "isAvailableCheckBox";
+            this.isAvailableCheckBox.Size = new System.Drawing.Size(94, 17);
+            this.isAvailableCheckBox.TabIndex = 23;
+            this.isAvailableCheckBox.Text = "Still Available?";
+            this.isAvailableCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // editItemCancelButton
+            // 
+            this.editItemCancelButton.AutoEllipsis = true;
+            this.editItemCancelButton.BackColor = System.Drawing.Color.Navy;
+            this.editItemCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editItemCancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editItemCancelButton.ForeColor = System.Drawing.Color.SkyBlue;
+            this.editItemCancelButton.Location = new System.Drawing.Point(122, 249);
+            this.editItemCancelButton.Name = "editItemCancelButton";
+            this.editItemCancelButton.Size = new System.Drawing.Size(259, 32);
+            this.editItemCancelButton.TabIndex = 22;
+            this.editItemCancelButton.Text = "CANCEL";
+            this.editItemCancelButton.UseVisualStyleBackColor = false;
+            this.editItemCancelButton.Click += new System.EventHandler(this.editItemCancelButton_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.Location = new System.Drawing.Point(228, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 17);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Edit Item";
             // 
             // editItemSubmitButton
             // 
@@ -439,34 +507,6 @@
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Name";
-            // 
-            // editItemRefreshButton
-            // 
-            this.editItemRefreshButton.Location = new System.Drawing.Point(259, 273);
-            this.editItemRefreshButton.Name = "editItemRefreshButton";
-            this.editItemRefreshButton.Size = new System.Drawing.Size(75, 23);
-            this.editItemRefreshButton.TabIndex = 2;
-            this.editItemRefreshButton.Text = "Refresh";
-            this.editItemRefreshButton.UseVisualStyleBackColor = true;
-            this.editItemRefreshButton.Click += new System.EventHandler(this.editItemRefreshButton_Click);
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(167, 273);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 23);
-            this.editButton.TabIndex = 1;
-            this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
-            // 
-            // editItemListView
-            // 
-            this.editItemListView.Location = new System.Drawing.Point(11, 9);
-            this.editItemListView.Name = "editItemListView";
-            this.editItemListView.Size = new System.Drawing.Size(487, 258);
-            this.editItemListView.TabIndex = 0;
-            this.editItemListView.UseCompatibleStateImageBehavior = false;
             // 
             // additemPanel
             // 
@@ -547,41 +587,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Name";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.Location = new System.Drawing.Point(228, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 17);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Edit Item";
-            // 
-            // editItemCancelButton
-            // 
-            this.editItemCancelButton.AutoEllipsis = true;
-            this.editItemCancelButton.BackColor = System.Drawing.Color.Navy;
-            this.editItemCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editItemCancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editItemCancelButton.ForeColor = System.Drawing.Color.SkyBlue;
-            this.editItemCancelButton.Location = new System.Drawing.Point(122, 249);
-            this.editItemCancelButton.Name = "editItemCancelButton";
-            this.editItemCancelButton.Size = new System.Drawing.Size(259, 32);
-            this.editItemCancelButton.TabIndex = 22;
-            this.editItemCancelButton.Text = "CANCEL";
-            this.editItemCancelButton.UseVisualStyleBackColor = false;
-            this.editItemCancelButton.Click += new System.EventHandler(this.editItemCancelButton_Click);
-            // 
-            // isAvailableCheckBox
-            // 
-            this.isAvailableCheckBox.AutoSize = true;
-            this.isAvailableCheckBox.Location = new System.Drawing.Point(210, 177);
-            this.isAvailableCheckBox.Name = "isAvailableCheckBox";
-            this.isAvailableCheckBox.Size = new System.Drawing.Size(94, 17);
-            this.isAvailableCheckBox.TabIndex = 23;
-            this.isAvailableCheckBox.Text = "Still Available?";
-            this.isAvailableCheckBox.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Navy;
@@ -595,17 +600,33 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(101, 51);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 13);
+            this.label11.TabIndex = 58;
+            this.label11.Text = "Quantity";
+            // 
+            // quantityNumericUpDown
+            // 
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(104, 69);
+            this.quantityNumericUpDown.Name = "quantityNumericUpDown";
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(305, 20);
+            this.quantityNumericUpDown.TabIndex = 59;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 488);
+            this.Controls.Add(this.borrowPanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.editPanel);
             this.Controls.Add(this.edititemPanel);
             this.Controls.Add(this.additemPanel);
             this.Controls.Add(this.returnPanel);
-            this.Controls.Add(this.borrowPanel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -628,6 +649,7 @@
             this.editPanel.PerformLayout();
             this.additemPanel.ResumeLayout(false);
             this.additemPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -684,5 +706,7 @@
         private System.Windows.Forms.Button editItemCancelButton;
         private System.Windows.Forms.CheckBox isAvailableCheckBox;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
+        private System.Windows.Forms.Label label11;
     }
 }
